@@ -54,3 +54,12 @@ Predicting the test result
 Y_pred = regressor.predict(X_test)
 np.set_printoptions(precision = 2)
 print (np.concatenate((Y_pred.reshape(len(Y_pred),1), Y_test.reshape(len(Y_test), 1)),1))
+"""
+
+Predicting for a value 
+
+"""
+rd = float(input("Enter R&D Cost :"))
+ad = float(input("Enter Administration cost : "))
+mk = float(input("Enter Marketing cost : "))
+print (regressor.predict([[1,0,0,rd,ad,mk]]))
