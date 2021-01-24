@@ -25,13 +25,8 @@ y = dataset.iloc[:, -1].values
 Reshaping the label or Dependent Matrix
 
 """
-print (x)
-print ('#####################################################################')
-print (y)
-print ('#####################################################################')
 y = y.reshape(len(y),1) # reshaping y since sklearn accepts(feature scaling) only 2d array 
-print (y)
-print ('#####################################################################')
+
 """
 
 Feature scaling
@@ -45,10 +40,6 @@ sc_x = StandardScaler()
 x = sc_x.fit_transform(x[:, :])
 sc_y = StandardScaler()
 y = sc_y.fit_transform(y[:, :])
-print (x)
-print ('#####################################################################')
-print (y)
-print ('#####################################################################')
 """
 
 Training the SVR Model
