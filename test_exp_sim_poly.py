@@ -64,7 +64,7 @@ lin2.fit(x_poly, y2)
 plt.scatter(x, y2, color = 'blue') 
 
 x = np.array(x).reshape(-1,1)
-plt.plot(x, lin2.predict(poly.fit_transform(x)), color = 'red') 
+plt.plot(x, lin2.predict(poly2.fit_transform(x)), color = 'red') 
 plt.title('Polynomial Regression') 
 plt.xlabel('x-input') 
 plt.ylabel('y2-with sim data') 
@@ -86,3 +86,61 @@ plt.show()
 # =============================================================================
 print(lin2.predict(poly2.fit_transform(x_new)))
 print(lin.predict(poly.fit_transform(x_new)))
+
+
+# =============================================================================
+# EXP DATA ONLY
+# =============================================================================
+
+x3 = [1,3,5,7,9,11,13,15,17,19]
+y3 = [1,9,25,49,81,121,169,225,343,361]
+
+data3 =[]
+for i in x3:
+    data3.append([i])
+    
+poly3 = PolynomialFeatures(degree = 2)
+x_poly3 = poly3.fit_transform(data3)
+poly3.fit(x_poly3, y3)
+
+lin3 = LinearRegression() 
+lin3.fit(x_poly3, y3) 
+
+x3 = np.array(x3).reshape(-1,1)
+plt.plot(x3, lin3.predict(poly2.fit_transform(x3)), color = 'red') 
+plt.title('Polynomial Regression') 
+plt.xlabel('x3-input') 
+plt.ylabel('y2-exp data only') 
+
+plt.show() 
+
+# =============================================================================
+#  PLOT OF ALL THREE - COMPARING
+# =============================================================================
+plt.figure()
+plt.plot(x, lin2.predict(poly2.fit_transform(x)),color='blue', label = 'sim-only')
+plt.plot(x, lin.predict(poly.fit_transform(x)),color='red', label = 'sim+exp')
+plt.plot(x3, lin3.predict(poly3.fit_transform(x3)), color = 'green', label ='exp-only') 
+plt.title('comparison plot of training')
+plt.legend()
+plt.show()
+
+
+# =============================================================================
+# PLOT OF PREDICTION WITH ALL THREE - COMPARING
+# =============================================================================
+
+x_new = [[25],[26],[27]]
+plt.figure()
+plt.plot(x_new, lin2.predict(poly2.fit_transform(x_new)),color='blue', label = 'sim-only')
+plt.plot(x_new, lin.predict(poly.fit_transform(x_new)),color='red', label = 'sim+exp')
+plt.plot(x_new, lin3.predict(poly3.fit_transform(x_new)), color = 'green', label ='exp-only') 
+plt.legend()
+plt.show()
+
+# =============================================================================
+ACTUAL PREDICTED VALUES
+# =============================================================================
+print(lin2.predict(poly2.fit_transform(x_new)))
+print(lin.predict(poly.fit_transform(x_new)))
+print(lin3.predict(poly3.fit_transform(x_new)))
