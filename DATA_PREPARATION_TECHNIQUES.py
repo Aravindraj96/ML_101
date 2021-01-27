@@ -43,7 +43,7 @@ new.replace('?', -9999, inplace = True)
 print(new['formability'].value_counts())
 
 # =============================================================================
-# CORRELATION TO UNDESTAND RELATIONSHIP BETWEEN FEATURES
+# CORRELATION TO UNDERSTAND RELATIONSHIP BETWEEN FEATURES
 # =============================================================================
 plt.figure(figsize=(15,15))
 sns.heatmap(train_data.corr())
@@ -149,7 +149,7 @@ features['steel'].replace('K', 3, inplace=True)
 
 
 # =============================================================================
-# SHUFFLING DATA SO THAT MODEL AN LEARN BETTER 
+# SHUFFLING DATA SO THAT MODEL CAN LEARN BETTER 
 # =============================================================================
 import random
 random.shuffle(training_data)
