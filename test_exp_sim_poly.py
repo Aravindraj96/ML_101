@@ -144,3 +144,6 @@ ACTUAL PREDICTED VALUES
 print(lin2.predict(poly2.fit_transform(x_new)))
 print(lin.predict(poly.fit_transform(x_new)))
 print(lin3.predict(poly3.fit_transform(x_new)))
+
+
+#add new
